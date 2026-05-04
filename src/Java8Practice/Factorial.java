@@ -1,8 +1,16 @@
 package Java8Practice;
 
+@FunctionalInterface
 interface Fact{
 
     int fact(int x);
+
+    String toString();
+
+    boolean equals(Object obj);
+
+    int hashCode();
+
 }
 public class Factorial {
 

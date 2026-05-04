@@ -7,11 +7,14 @@ public class SortString {
 
     public static void main(String[] args) {
 
-        List<String> list = Arrays.asList("Shamim","Shubham","Sahil", "Pragati");
+        List<String> list = Arrays.asList("Shamim","Shubham","Sahil", "Brajesh", "Pragati");
 
-        list.sort((a, b) -> a.length() - b.length());
+       /* list.sort((a, b) -> a.length() - b.length());
 
-        System.out.println(list);
+        System.out.println(list);*/
 
+        List<String> list1 = list.stream().sorted((a, b) -> a.length() - b.length()).toList();
+
+        System.out.println(list1);
     }
 }
