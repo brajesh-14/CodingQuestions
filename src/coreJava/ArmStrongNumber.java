@@ -1,0 +1,22 @@
+package coreJava;
+
+public class ArmStrongNumber {
+
+    public static void main(String[] args) {
+        int num = 153;
+        int sum =0;
+        int v = num;
+        while(num != 0){
+
+            int rem = num % 10;
+            sum += rem * rem * rem;
+            num = num/10;
+        }
+
+        if(v == sum){
+            System.out.println("This is coreJava.ArmStrongNumber");
+        }else{
+            System.out.println("Not ArmStrong");
+        }
+    }
+}
