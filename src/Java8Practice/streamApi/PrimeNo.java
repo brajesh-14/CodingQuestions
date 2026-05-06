@@ -9,6 +9,5 @@ public class PrimeNo {
 
         int num = 7;
 
-        IntStream.rangeClosed(2, num/2)
     }
 }

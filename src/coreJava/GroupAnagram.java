@@ -17,6 +17,16 @@ public class GroupAnagram {
             }
 
             ((List)map.get(key)).add(s);
+
+        /*    List<String> list = new ArrayList<>();
+
+            if(!map.containsKey(key)){
+                map.put(key, list);
+            } else {
+                list = map.get(key);   // 🔥 IMPORTANT FIX
+            }
+
+            list.add(s);*/
         }
 
         System.out.println(map.values());
