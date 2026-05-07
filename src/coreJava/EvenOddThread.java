@@ -44,10 +44,8 @@ public class EvenOddThread {
 
     public static void main(String[] args) {
         EvenOddThread eo = new EvenOddThread();
-        Objects.requireNonNull(eo);
         Thread t1 = new Thread(eo::printEven);
         t1.start();
-        Objects.requireNonNull(eo);
         Thread t2 = new Thread(eo::printOdd);
         t2.start();
     }

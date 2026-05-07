@@ -6,7 +6,7 @@ public class BinarySearch {
         int[] arr = new int[]{10, 20, 30, 40, 50};
         int start = 0;
         int end = arr.length - 1;
-        int target = 30;
+        int target = 10;
 
         while(start <= end) {
             int mid = start + (end - start) / 2;
