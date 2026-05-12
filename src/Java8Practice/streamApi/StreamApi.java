@@ -118,8 +118,8 @@ public class StreamApi {
 
 
         List<String> example20 = Arrays.asList("Shamim", "Shubham", "Sahil", "Brajesh", "Pragati");
-        List<String> sortLenthWise = example20.stream().sorted(Comparator.comparing(String::length)).toList();
-        System.out.println("20. Sort the list according to length: "+sortLenthWise);
+        List<String> sortLengthWise = example20.stream().sorted(Comparator.comparing(String::length)).toList();
+        System.out.println("20. Sort the list according to length: "+sortLengthWise);
         System.out.println();
 
 
@@ -129,6 +129,34 @@ public class StreamApi {
         System.out.println();
 
 
+        List<List<Integer>> example22 = Arrays.asList(Arrays.asList(1, 2, 3, 4, 5), Arrays.asList(6, 7, 8, 9));
+        List<Integer> flattenList = example22.stream().flatMap(f -> f.stream()).toList();
+        System.out.println("22. Flattening the list:"+flattenList);
+        System.out.println();
+
+
+        List<Integer> example23 = Arrays.asList(1, 2, 3, 4, 5, 6);
+        Map<Boolean, List<Integer>> separateEvenOdd = example23.stream().collect(Collectors.partitioningBy(p -> p % 2 == 0));
+        System.out.println("23. Separate Even and Odd: "+separateEvenOdd);
+        System.out.println();
+
+
+        List<Integer> example24 = Arrays.asList(10, 20, 50, 30, 40, 50);
+        Integer secondHighest = example24.stream().distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst().get();
+        System.out.println("24. Second Highest element is : "+secondHighest);
+        System.out.println();
+
+
+        List<Integer> example25 = Arrays.asList(12, 43, 65, 3, 45, 23, 65, 27, 43);
+        List<Integer> greaterThan = example25.stream().filter(f -> f > 20).toList();
+        System.out.println("25. Greater than the elements are: "+greaterThan);
+        System.out.println();
+
+
+        List<Integer> example26 = Arrays.asList(1, 2, 3, 4, 5);
+        double average = example26.stream().mapToInt(Integer::intValue).average().getAsDouble();
+        System.out.println("26. Average of the give numbers are: "+average);
+        System.out.println();
 
     }
 }
