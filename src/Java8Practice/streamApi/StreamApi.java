@@ -174,34 +174,60 @@ public class StreamApi {
 
         List<String> example29 = Arrays.asList("apple", "banana", "cherry", "date");
         String longestString = example29.stream().reduce((a, b) -> a.length() > b.length() ? a : b).get();
-        System.out.println("30. Longest String in the list is: "+longestString);
+        System.out.println("29. Longest String in the list is: "+longestString);
         System.out.println();
 
 
         List<Integer> example30 = Arrays.asList(1, 2, 3);
         List<Integer> example03 = Arrays.asList(4, 5, 6);
-        List<Integer> afterConcat = Stream.concat(example30.stream(), example03.stream()).toList();
-        System.out.println("31. Concat two list: "+afterConcat);
-        System.out.println();
+       /* List<Integer> afterConcat = Stream.concat(example30.stream(), example03.stream()).toList();
+        System.out.println("30. Concat two list: "+afterConcat);*/
+
+        List<List<Integer>> list = Arrays.asList(example30, example03);
+        List<Integer> sorted = list.stream().flatMap(f -> f.stream()).sorted().toList();
+        System.out.println("656 Sorted manner:"+ sorted);
 
 
         List<Integer> example31 = Arrays.asList(5, 8, 12, 3, 20);
         Integer firstElement = example31.stream().filter(f -> f > 10).findFirst().get();
-        System.out.println("32. First Element greater than 10 is: "+firstElement);
+        System.out.println("31. First Element greater than 10 is: "+firstElement);
         System.out.println();
 
         List<Integer> example32 = Arrays.asList(10, 20, 5, 15);
         Integer minimumEle = example32.stream().min(Integer::min).get();
-        System.out.println("33. Smallest element is: "+minimumEle);
+        System.out.println("32. Smallest element is: "+minimumEle);
         System.out.println();
 
         List<Integer> example33 = Stream.generate( () -> (int)(Math.random()*10)).limit(5).toList();
-        System.out.println("34. Random generated numbers are: "+example33);
+        System.out.println("33. Random generated numbers are: "+example33);
         System.out.println();
 
         int number = 5;
         int fact = IntStream.rangeClosed(1, number).reduce(1, (a, b) -> a * b);
         System.out.println("34. Factorial of the number "+number+" is: "+ fact);
+        System.out.println();
+
+        List<Integer> example35 = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+        List<Integer> subList = example35.stream().skip(2).limit(3).toList();
+        System.out.println("35. SubList of a list is: "+subList);
+        System.out.println();
+
+        List<String> example36 = Arrays.asList("madam", "racecar", "java", "level", "hello");
+        List<String> palindromeList = example36.stream().filter(f -> f.equals(new StringBuffer(f).reverse().toString())).toList();
+        System.out.println("36. Palindromic Strings in the list are: "+palindromeList);
+        System.out.println();
+
+        String example37 = "Brajesh";
+        Map<Boolean, List<String>> vowCons = Arrays.stream(example37.split("")).collect(Collectors.partitioningBy(i -> "aeiou".contains(i)));
+        System.out.println("37. Vowels and Consonants are :"+vowCons);
+        System.out.println();
+
+
+        String example38 = "aabbbcc";
+        String decode = Arrays.stream(example38.split(""))
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream()
+                .map(i -> i.getKey() + i.getKey()).collect(Collectors.joining());
+        System.out.println("38. String Decode: "+decode);
         System.out.println();
 
 
